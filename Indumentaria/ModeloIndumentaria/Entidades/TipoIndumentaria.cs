@@ -39,5 +39,10 @@ namespace ModeloIndumentaria.Entidades
                 this.porcentajeAlgodon = value;
             }
         }
+        public override string ToString()
+        {
+            return "Origen: " + origen + ", porcentaje de algodon: " + porcentajeAlgodon;
+
+        }
     }
 }

@@ -15,6 +15,9 @@ namespace Indumentaria
         {
             int opcionMenu = 0 ;
             TiendaRopa tienda = new TiendaRopa();
+        double precio;
+        char talle;
+        TipoIndumentaria tipoIndumentaria;
             do
             {
             try { 
@@ -30,9 +33,10 @@ namespace Indumentaria
                         }
                         break;
                     case 2:
+                        // Agregar indumentaria
                         try
                         {
-
+                            
                         }
                         catch ()
 

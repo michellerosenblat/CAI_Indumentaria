@@ -9,5 +9,9 @@ namespace ModeloIndumentaria.Entidades
     public class IndumentariaDeportiva : TipoIndumentaria
     {
         public IndumentariaDeportiva (string origen, double porcentajeAlgodon) : base (origen, porcentajeAlgodon) { }
+        public override string ToString()
+        {
+            return "Indumentaria Deportiva, origen: " + origen + ", porcentajeAlgodon: " + porcentajeAlgodon;
+        }
     }
 }

@@ -24,5 +24,21 @@ namespace Indumentaria.Factorys
             return listaTipoIndumentarias;
         }
 
+        public static TipoIndumentaria GetTipoIndumentaria (int codigo)
+        {
+            switch (codigo) { 
+                case 1:
+                return listaTipoIndumentarias.Find(tp => tp.GetType()== (IndumentariaCasual);
+                 break;
+                case 2:
+                    return listaTipoIndumentarias.Find(tp => tp.GetType() == IndumentariaDeportiva);
+                    break;
+                case 3:
+                    return listaTipoIndumentarias.Find(tp => tp.GetType() == IndumentariaFormal);
+                    break;
+            }
+
+        }
+
     }
 }

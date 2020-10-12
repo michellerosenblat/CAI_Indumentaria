@@ -4,12 +4,14 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Indumentaria.Factorys;
+using ModeloIndumentaria.Entidades;
 
 namespace Indumentaria.Validaciones
 {
     public static class Validacion
     {
-        public static string GetString (string mensaje)
+        public static string PedirString (string mensaje)
         {
             string input;
             do
@@ -20,7 +22,7 @@ namespace Indumentaria.Validaciones
             while (input == "");
             return input;
         }
-        public static double GetDouble(string mensaje)
+        public static double PedirDouble(string mensaje)
         {
             string input;
             double num;
@@ -33,7 +35,7 @@ namespace Indumentaria.Validaciones
             return num;
         }
 
-        public static int GetInt(string mensaje)
+        public static int PedirInt(string mensaje)
         {
             string input;
             int num;
@@ -46,7 +48,7 @@ namespace Indumentaria.Validaciones
             return num;
         }
 
-        public static char GetTalle ()
+        public static char PedirTalle ()
         {
             char talle;
             string input;
@@ -57,6 +59,34 @@ namespace Indumentaria.Validaciones
             }
             while (!char.TryParse(input, out talle) && input != "S" && input != "M" && input != "L" && input != "XL");
             return talle;
+        }
+
+        public static TipoIndumentaria PedirTipoIndumentaria()
+        {
+            TipoIndumentaria tipo;
+            int input;
+
+            do
+            {
+                ListarTiposIndumentaria();
+                input = PedirInt("1, 2 , 3 para elegir el Tipo de Indumentaria");
+                switch (input)
+                {
+                    case 1:
+                        return 
+                }
+            }
+
+            }
+            }
+
+        public static void ListarTiposIndumentaria()
+        {
+            List<TipoIndumentaria> listaTipoIndumentaria = TipoIndumentariaFactory.GetListaTipoIndumentaria();
+            foreach (TipoIndumentaria ti in listaTipoIndumentaria)
+            {
+                Console.WriteLine(ti.ToString());
+            }
         }
     }
 }

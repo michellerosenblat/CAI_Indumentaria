@@ -14,6 +14,13 @@ namespace ModeloIndumentaria.Entidades
         protected double precio;
         protected char talle;
 
+        public Indumentaria (TipoIndumentaria tipo, double precio, char talle)
+        {
+            this.tipo = tipo;
+            this.stock = 3;
+            this.precio = precio;
+            this.talle = talle;
+        }
         public abstract string GetDetalle();
         public override string ToString()
         {
