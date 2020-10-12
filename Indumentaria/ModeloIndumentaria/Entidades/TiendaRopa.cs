@@ -16,9 +16,17 @@ namespace ModeloIndumentaria.Entidades
         {
             return ultimoCodigo + 1;
         }
-        public void Agregar (Indumentaria indumentaria)
+        public void Agregar(Indumentaria indumentaria)
         {
-
+            inventario.Add (indumentaria);
+        }
+        public void AgregarCamisa (TipoIndumentaria tipo, double precio, char talle, bool tieneEstampa, string tipoManga)
+        {
+           Agregar(new Camisa(tipo, precio, talle, tieneEstampa, tipoManga));
+        }
+        public void AgregarPantalon (TipoIndumentaria tipo, double precio, char talle, bool tieneBolsillos, string material)
+        {
+            Agregar(new Pantalon(tipo, precio, talle, tieneBolsillos, material));
         }
         public void Modificar (Indumentaria indumentaria)
         {

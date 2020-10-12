@@ -16,9 +16,9 @@ namespace Indumentaria.Factorys
         static TipoIndumentariaFactory()
         {
             listaTipoIndumentarias = new List<TipoIndumentaria>();
-            listaTipoIndumentarias.Add(new IndumentariaCasual("China", 50));
-            listaTipoIndumentarias.Add(new IndumentariaDeportiva("Japón", 30));
-            listaTipoIndumentarias.Add(new IndumentariaFormal("Pakistan", 100));
+            listaTipoIndumentarias.Add(new IndumentariaCasual("China", 50, 1));
+            listaTipoIndumentarias.Add(new IndumentariaDeportiva("Japón", 30, 2));
+            listaTipoIndumentarias.Add(new IndumentariaFormal("Pakistan", 100, 3));
         }
         public static List <TipoIndumentaria> GetListaTipoIndumentaria ()
         {
@@ -39,4 +39,3 @@ namespace Indumentaria.Factorys
         }
 
     }
-}

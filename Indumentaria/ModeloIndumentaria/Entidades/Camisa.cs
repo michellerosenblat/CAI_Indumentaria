@@ -12,6 +12,11 @@ namespace ModeloIndumentaria.Entidades
         private bool tieneEstampado;
         private string tipoManga;
 
+        public Camisa (TipoIndumentaria tipo, double precio, char talle, bool tieneEstampado, string tipoManga) : base (tipo, precio, talle)
+        {
+            this.tieneEstampado = tieneEstampado;
+            this.tipoManga = tipoManga;
+        }
         public override string GetDetalle()
         {
             if (tieneEstampado)

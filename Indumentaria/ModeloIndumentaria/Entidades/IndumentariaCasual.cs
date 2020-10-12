@@ -8,7 +8,7 @@ namespace ModeloIndumentaria.Entidades
 {
     public class IndumentariaCasual : TipoIndumentaria
     {
-        public IndumentariaCasual(string origen, double porcentajeAlgodon) : base(origen, porcentajeAlgodon) { }
+        public IndumentariaCasual(string origen, double porcentajeAlgodon, int codigo) : base(origen, porcentajeAlgodon, codigo) { }
         public override string ToString()
         {
             return base.ToString() + "Indumentaria casual";

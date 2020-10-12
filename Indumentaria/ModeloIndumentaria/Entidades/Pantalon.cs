@@ -10,6 +10,11 @@ namespace ModeloIndumentaria.Entidades
     {
         private string material;
         private bool tieneBolsillos;
+        public Pantalon (TipoIndumentaria tipo, double precio, char talle, bool tieneBolsillos, string material) : base (tipo, precio, talle){
+            
+                this.material = material;
+                this.tieneBolsillos = tieneBolsillos;
+            }
         public override string GetDetalle()
         {
             if (tieneBolsillos)

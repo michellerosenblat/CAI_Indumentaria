@@ -61,13 +61,38 @@ namespace Indumentaria.Validaciones
             return talle;
         }
 
-            public static void ListarTiposIndumentaria()
+        public static char PedirCamisaOPantalon()
+        {
+            char camisaOPantalon;
+            string input;
+            do
+            {
+                Console.WriteLine("Ingrese C para camisa o P para Pantalon)");
+                input = Console.ReadLine().ToUpper();
+            }
+            while (!char.TryParse(input, out camisaOPantalon) && input != "C" && input != "P");
+            return camisaOPantalon;
+        }
+
+        public static void ListarTiposIndumentaria()
         {
             List<TipoIndumentaria> listaTipoIndumentaria = TipoIndumentariaFactory.GetListaTipoIndumentaria();
             foreach (TipoIndumentaria ti in listaTipoIndumentaria)
             {
                 Console.WriteLine(ti.ToString());
             }
+        }
+        public static bool PedirSON(string mensaje)
+        {
+            char valor;
+            string input;
+            do
+            {
+                Console.WriteLine("Ingrese " + mensaje);
+                input = Console.ReadLine().ToUpper();
+            }
+            while (!char.TryParse(input, out valor) && input != "S" && input != "N");
+            return valor == 'S';
         }
     }
 }

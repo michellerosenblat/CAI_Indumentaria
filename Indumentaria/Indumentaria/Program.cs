@@ -8,6 +8,9 @@ using ModeloIndumentaria.Excepciones;
 using ModeloIndumentaria.Entidades;
 using Indumentaria.Factorys;
 using Indumentaria.Validaciones;
+using System.Runtime.CompilerServices;
+using System.Threading;
+
 namespace Indumentaria
 {
     class Program
@@ -20,6 +23,11 @@ namespace Indumentaria
         int codTipoIndumentaria;
         double precio;
         char talle;
+        char camisaOPantalon;
+            string tipoManga;
+            string material;
+            bool tieneEstampa;
+            bool tieneBolsillos;
         TipoIndumentaria tipoIndumentaria;
             do
             {
@@ -41,7 +49,24 @@ namespace Indumentaria
                         {
                             codTipoIndumentaria = Validacion.PedirInt("codigo de tipo de indumentaria");
                             tipoIndumentaria = TipoIndumentariaFactory.GetTipoIndumentaria(codTipoIndumentaria);
-                                precio = Validacion.PedirDouble("precio de la indumentaria");
+                            precio = Validacion.PedirDouble("precio de la indumentaria");
+                            talle = Validacion.PedirTalle();
+                            camisaOPantalon = Validacion.PedirCamisaOPantalon();
+                                switch (camisaOPantalon)
+                                {
+                                    case 'C':
+                                        tieneEstampa = Validacion.PedirSON("si tiene estampa ingrese S, caso contrario N");
+                                        tipoManga = Validacion.PedirString("tipo de manga");
+                                        tienda.AgregarCamisa(tipoIndumentaria, precio, talle, tieneEstampa, tipoManga);
+                                        break;
+                                    case 'P':
+                                        tieneBolsillos = Validacion.PedirSON("si tiene bolsillos ingrese S, caso contrario N");
+                                        material = Validacion.PedirString("material");
+                                        tienda.AgregarPantalon(tipoIndumentaria, precio, talle, tieneBolsillos, material);
+                                        break;
+                                    default:
+                                        break;
+                                }
                         }
                         catch (NoExisteTipoCategoriaException ex)
                         {

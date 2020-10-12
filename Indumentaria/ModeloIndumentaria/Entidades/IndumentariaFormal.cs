@@ -8,7 +8,7 @@ namespace ModeloIndumentaria.Entidades
 {
     public class IndumentariaFormal : TipoIndumentaria
     {
-        public IndumentariaFormal (string origen, double porcentajeAlgodon) : base (origen, porcentajeAlgodon) { }
+        public IndumentariaFormal (string origen, double porcentajeAlgodon, int codigo) : base (origen, porcentajeAlgodon, codigo) { }
 
         public override string ToString()
         {
