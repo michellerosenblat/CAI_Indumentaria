@@ -1,0 +1,5 @@
+C:\Users\Michu\Documents\GitHub\CAI_Indumentaria\Indumentaria\ModeloIndumentaria\bin\Debug\ModeloIndumentaria.dll
+C:\Users\Michu\Documents\GitHub\CAI_Indumentaria\Indumentaria\ModeloIndumentaria\bin\Debug\ModeloIndumentaria.pdb
+C:\Users\Michu\Documents\GitHub\CAI_Indumentaria\Indumentaria\ModeloIndumentaria\obj\Debug\ModeloIndumentaria.csproj.CoreCompileInputs.cache
+C:\Users\Michu\Documents\GitHub\CAI_Indumentaria\Indumentaria\ModeloIndumentaria\obj\Debug\ModeloIndumentaria.dll
+C:\Users\Michu\Documents\GitHub\CAI_Indumentaria\Indumentaria\ModeloIndumentaria\obj\Debug\ModeloIndumentaria.pdb

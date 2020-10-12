@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indumentaria", "Indumentaria\Indumentaria.csproj", "{35EB065C-07C9-44EB-9CB3-99B08CBC0144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModeloIndumentaria", "ModeloIndumentaria\ModeloIndumentaria.csproj", "{7CC67942-B693-4C07-AC85-E57518C7A33F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35EB065C-07C9-44EB-9CB3-99B08CBC0144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EB065C-07C9-44EB-9CB3-99B08CBC0144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EB065C-07C9-44EB-9CB3-99B08CBC0144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EB065C-07C9-44EB-9CB3-99B08CBC0144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC67942-B693-4C07-AC85-E57518C7A33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC67942-B693-4C07-AC85-E57518C7A33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC67942-B693-4C07-AC85-E57518C7A33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC67942-B693-4C07-AC85-E57518C7A33F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFE9DD50-149A-40BD-A47D-5B1E2209BB0F}
+	EndGlobalSection
+EndGlobal
