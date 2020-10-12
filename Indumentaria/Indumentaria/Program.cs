@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using ModeloIndumentaria;
 using ModeloIndumentaria.Excepciones;
 using ModeloIndumentaria.Entidades;
-
+using Indumentaria.Factorys;
+using Indumentaria.Validaciones;
 namespace Indumentaria
-
+{
     class Program
     {
+    
         static void Main(string[] args)
         {
             int opcionMenu = 0 ;
             TiendaRopa tienda = new TiendaRopa();
+        int codTipoIndumentaria;
         double precio;
         char talle;
         TipoIndumentaria tipoIndumentaria;
@@ -36,9 +39,15 @@ namespace Indumentaria
                         // Agregar indumentaria
                         try
                         {
-                            
+                            codTipoIndumentaria = Validacion.PedirInt("codigo de tipo de indumentaria");
+                            tipoIndumentaria = TipoIndumentariaFactory.GetTipoIndumentaria(codTipoIndumentaria);
+                                precio = Validacion.PedirDouble("precio de la indumentaria");
                         }
-                        catch ()
+                        catch (NoExisteTipoCategoriaException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        break;
 
                 }
             }

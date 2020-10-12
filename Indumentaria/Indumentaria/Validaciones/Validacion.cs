@@ -61,26 +61,7 @@ namespace Indumentaria.Validaciones
             return talle;
         }
 
-        public static TipoIndumentaria PedirTipoIndumentaria()
-        {
-            TipoIndumentaria tipo;
-            int input;
-
-            do
-            {
-                ListarTiposIndumentaria();
-                input = PedirInt("1, 2 , 3 para elegir el Tipo de Indumentaria");
-                switch (input)
-                {
-                    case 1:
-                        return 
-                }
-            }
-
-            }
-            }
-
-        public static void ListarTiposIndumentaria()
+            public static void ListarTiposIndumentaria()
         {
             List<TipoIndumentaria> listaTipoIndumentaria = TipoIndumentariaFactory.GetListaTipoIndumentaria();
             foreach (TipoIndumentaria ti in listaTipoIndumentaria)

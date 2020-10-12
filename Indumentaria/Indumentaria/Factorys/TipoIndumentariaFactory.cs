@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using ModeloIndumentaria.Excepciones;
 
 namespace Indumentaria.Factorys
 {
@@ -26,16 +27,13 @@ namespace Indumentaria.Factorys
 
         public static TipoIndumentaria GetTipoIndumentaria (int codigo)
         {
-            switch (codigo) { 
-                case 1:
-                return listaTipoIndumentarias.Find(tp => tp.GetType()== (IndumentariaCasual);
-                 break;
-                case 2:
-                    return listaTipoIndumentarias.Find(tp => tp.GetType() == IndumentariaDeportiva);
-                    break;
-                case 3:
-                    return listaTipoIndumentarias.Find(tp => tp.GetType() == IndumentariaFormal);
-                    break;
+            TipoIndumentaria tipoIndumentariaADevolver = listaTipoIndumentarias.Find(tp => tp.Codigo == codigo);
+            if (tipoIndumentariaADevolver is null)
+            {
+                throw new NoExisteTipoCategoriaException();
+            }
+            else
+                return tipoIndumentariaADevolver;
             }
 
         }

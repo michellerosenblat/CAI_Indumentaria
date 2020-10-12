@@ -54,6 +54,7 @@
     <Compile Include="Entidades\TipoIndumentaria.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entidades\VentaItem.cs" />
+    <Compile Include="Excepciones\NoExisteTipoCategoriaException.cs" />
     <Compile Include="Excepciones\NoHayPrendasCargadasException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
