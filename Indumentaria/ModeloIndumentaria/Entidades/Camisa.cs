@@ -12,7 +12,7 @@ namespace ModeloIndumentaria.Entidades
         private bool tieneEstampado;
         private string tipoManga;
 
-        public Camisa (TipoIndumentaria tipo, double precio, char talle, bool tieneEstampado, string tipoManga) : base (tipo, precio, talle)
+        public Camisa (TipoIndumentaria tipo, double precio, string talle, bool tieneEstampado, string tipoManga, int codigo) : base (tipo, precio, talle, codigo)
         {
             this.tieneEstampado = tieneEstampado;
             this.tipoManga = tipoManga;
@@ -21,9 +21,9 @@ namespace ModeloIndumentaria.Entidades
         {
             if (tieneEstampado)
             {
-                return "Camisa con estampa y con tipo de manga " + tipoManga;
+                return "Codigo: " +codigo + " camisa con estampa y con tipo de manga " + tipoManga;
             }
-            return "Camisa sin estampa y con tipo de manga " + tipoManga;
+            return "Codigo: " + codigo + "Camisa sin estampa y con tipo de manga " + tipoManga;
         }
 
         public bool TieneEstampado

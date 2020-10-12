@@ -48,16 +48,15 @@ namespace Indumentaria.Validaciones
             return num;
         }
 
-        public static char PedirTalle ()
+        public static string PedirTalle ()
         {
-            char talle;
-            string input;
+            string talle;
             do
             {
                 Console.WriteLine("Ingrese talle (S, M, L, XL)");
-                input = Console.ReadLine();
+                talle = Console.ReadLine().ToUpper();
             }
-            while (!char.TryParse(input, out talle) && input != "S" && input != "M" && input != "L" && input != "XL");
+            while (talle != "S" && talle != "M" && talle != "L" && talle != "XL");
             return talle;
         }
 
@@ -67,7 +66,7 @@ namespace Indumentaria.Validaciones
             string input;
             do
             {
-                Console.WriteLine("Ingrese C para camisa o P para Pantalon)");
+                Console.WriteLine("Ingrese C para camisa o P para Pantalon");
                 input = Console.ReadLine().ToUpper();
             }
             while (!char.TryParse(input, out camisaOPantalon) && input != "C" && input != "P");

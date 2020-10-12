@@ -10,7 +10,7 @@ namespace ModeloIndumentaria.Entidades
     {
         private string material;
         private bool tieneBolsillos;
-        public Pantalon (TipoIndumentaria tipo, double precio, char talle, bool tieneBolsillos, string material) : base (tipo, precio, talle){
+        public Pantalon (TipoIndumentaria tipo, double precio, string talle, bool tieneBolsillos, string material, int codigo) : base (tipo, precio, talle, codigo){
             
                 this.material = material;
                 this.tieneBolsillos = tieneBolsillos;
@@ -19,11 +19,11 @@ namespace ModeloIndumentaria.Entidades
         {
             if (tieneBolsillos)
             {
-                return "Es un pantalon con bolsilos y material " + material;
+                return "Codigo: " + codigo + "Es un pantalon con bolsilos y material " + material;
             }
             else
             {
-                return "Es un pantalon sin bolsillos y material " + material;
+                return "Codigo: " + codigo + "Es un pantalon sin bolsillos y material " + material;
             }
            
         }

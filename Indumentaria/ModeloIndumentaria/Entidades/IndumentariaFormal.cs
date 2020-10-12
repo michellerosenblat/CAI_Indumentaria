@@ -12,7 +12,7 @@ namespace ModeloIndumentaria.Entidades
 
         public override string ToString()
         {
-            return "Indumentaria formal, origen: " + origen + ", porcentajeAlgodon: " + porcentajeAlgodon;
+            return  "Indumentaria formal " + base.ToString() ;
         }
     }
 }

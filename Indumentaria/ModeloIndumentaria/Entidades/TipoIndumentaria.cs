@@ -12,6 +12,7 @@ namespace ModeloIndumentaria.Entidades
         protected string origen;
         protected double porcentajeAlgodon;
         protected int codigoTipoIndumentaria;
+      
 
         public TipoIndumentaria (string origen, double porcentajeAlgodon, int codigoTipoIndumentaria)
         {
@@ -23,11 +24,11 @@ namespace ModeloIndumentaria.Entidades
         {
             get
             {
-                return this.Codigo;
+                return this.codigoTipoIndumentaria;
             }
             set
             {
-                this.Codigo = value;
+                this.codigoTipoIndumentaria = value;
             }
         }
         public string Origen
@@ -55,7 +56,7 @@ namespace ModeloIndumentaria.Entidades
         }
         public override string ToString()
         {
-            return "Origen: " + origen + ", porcentaje de algodon: " + porcentajeAlgodon;
+            return "Codigo: " + codigo + " Origen: " + origen + ", porcentaje de algodon: " + porcentajeAlgodon;
 
         }
     }

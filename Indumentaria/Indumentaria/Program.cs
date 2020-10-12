@@ -22,21 +22,26 @@ namespace Indumentaria
             TiendaRopa tienda = new TiendaRopa();
         int codTipoIndumentaria;
         double precio;
-        char talle;
+        string talle;
         char camisaOPantalon;
             string tipoManga;
             string material;
             bool tieneEstampa;
             bool tieneBolsillos;
+            int codIndumentaria;
+            int cantidad;
+            int codCliente;
         TipoIndumentaria tipoIndumentaria;
             do
             {
-            try { 
+            try {
+                    DesplegarMenu();
+                    opcionMenu = Validacion.PedirInt("opcion de menú");
                switch (opcionMenu)
-                {
+                    { 
                     case 1:
-                        try { 
-                        tienda.Listar();
+                        try {
+                                ListarIndumentariaDe(tienda);
                         }
                         catch (NoHayPrendasCargadasException ex)
                         {
@@ -47,6 +52,7 @@ namespace Indumentaria
                         // Agregar indumentaria
                         try
                         {
+                            ListarTipoIndumentaria();
                             codTipoIndumentaria = Validacion.PedirInt("codigo de tipo de indumentaria");
                             tipoIndumentaria = TipoIndumentariaFactory.GetTipoIndumentaria(codTipoIndumentaria);
                             precio = Validacion.PedirDouble("precio de la indumentaria");
@@ -67,15 +73,28 @@ namespace Indumentaria
                                     default:
                                         break;
                                 }
+                                
                         }
+                            
+
                         catch (NoExisteTipoCategoriaException ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
                         break;
-
+                        case 5:
+                            //Ingresar orden
+                            try { 
+                            ListarIndumentariaDe(tienda);
+                            codIndumentaria = Validacion.PedirInt("codigo de la indumentaria a comprar");
+                            cantidad = Validacion.PedirInt("cantidad del producto");
+                            codCliente = Validacion.PedirInt("codigo del cliente");
+                                tienda.IngresarOrden(codIndumentaria, cantidad, codCliente);
+                            }
+                            catch ()
+                            break;
+                    }
                 }
-            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -97,6 +116,14 @@ namespace Indumentaria
             foreach (ModeloIndumentaria.Entidades.Indumentaria ind in listaIndumentaria)
             {
                 Console.WriteLine(ind.GetDetalle());
+            }
+        }
+        static void ListarTipoIndumentaria()
+        {
+            List<TipoIndumentaria> listado = TipoIndumentariaFactory.GetListaTipoIndumentaria();
+            foreach (TipoIndumentaria tp in listado)
+            {
+                Console.WriteLine(tp.ToString());
             }
         }
     }
