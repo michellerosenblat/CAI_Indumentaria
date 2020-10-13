@@ -9,7 +9,7 @@ using ModeloIndumentaria.Excepciones;
 
 namespace Indumentaria.Factorys
 {
-    static class TipoIndumentariaFactory
+    public static class TipoIndumentariaFactory
     {
         private static List<TipoIndumentaria> listaTipoIndumentarias;
 

@@ -22,5 +22,23 @@ namespace ModeloIndumentaria.Entidades
             }
             return total;
         }
+        public Venta (List <VentaItem> items, Cliente cliente, int estado, int codigo)
+        {
+            this.items = items;
+            this.cliente = cliente;
+            this.estado = estado;
+            this.codigo = codigo;
+        }
+        public int Codigo
+        {
+            get
+            {
+                return this.codigo;
+            }
+            set
+            {
+                this.codigo = value;
+            }
+        }
     }
 }

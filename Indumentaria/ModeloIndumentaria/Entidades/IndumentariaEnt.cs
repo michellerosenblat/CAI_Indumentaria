@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModeloIndumentaria.Entidades
 {
-    public abstract class Indumentaria
+    public abstract class IndumentariaEnt
     {
         protected TipoIndumentaria tipo;
         protected int codigo;
@@ -14,7 +14,7 @@ namespace ModeloIndumentaria.Entidades
         protected double precio;
         protected string talle;
 
-        public Indumentaria (TipoIndumentaria tipo, double precio, string talle, int codigo)
+        public IndumentariaEnt (TipoIndumentaria tipo, double precio, string talle, int codigo)
         {
             this.tipo = tipo;
             this.stock = 3;
@@ -30,7 +30,7 @@ namespace ModeloIndumentaria.Entidades
         }
         public override bool Equals(object obj)
         {
-            return (obj != null && obj is Indumentaria && this.codigo == ((Indumentaria)obj).codigo );
+            return (obj != null && obj is IndumentariaEnt && this.codigo == ((IndumentariaEnt)obj).codigo );
         }
 
         public TipoIndumentaria Tipo

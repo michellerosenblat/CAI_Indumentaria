@@ -5,24 +5,36 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using ModeloIndumentaria.Excepciones;
+using ModeloIndumentaria;
+using ModeloIndumentaria.Factories;
 
 namespace ModeloIndumentaria.Entidades
 {
     public class TiendaRopa
     {
-        private List<Indumentaria> inventario;
+        private List<IndumentariaEnt> inventario;
         private List<Venta> ventas;
         private int ultimoCodigo;
         public TiendaRopa()
         {
-            inventario = new List<Indumentaria>();
+            inventario = new List<IndumentariaEnt>();
+            ventas = new List<Venta>();
             ultimoCodigo = 0;
         }
         private int GetProximoCodigo()
         {
             return ultimoCodigo + 1;
         }
-        public void Agregar(Indumentaria indumentaria)
+        private int GetProximoCodVenta()
+        { 
+                if (ventas.Any())
+                {
+                    return ventas.Max(a => a.Codigo)+1;
+                }
+                else
+                    return 1;
+            }
+        public void Agregar(IndumentariaEnt indumentaria)
         {
             inventario.Add (indumentaria);
         }
@@ -37,22 +49,20 @@ namespace ModeloIndumentaria.Entidades
             ultimoCodigo = GetProximoCodigo();
             Agregar(new Pantalon(tipo, precio, talle, tieneBolsillos, material, ultimoCodigo));
         }
-        public void Modificar (Indumentaria indumentaria)
+        public void Modificar (IndumentariaEnt indumentaria)
         {
 
         }
-        public void Quitar (Indumentaria indumentaria)
+        public void QuitarStockDe (List <VentaItem> ventaItem)
         {
-
+            foreach (VentaItem vt in ventaItem)
+            {
+                vt.Prenda.Stock -= vt.Cantidad;
+            }
         }
-        public void IngresarOrden (Venta venta)
+        public IndumentariaEnt ExistePrenda(int codIndumentaria)
         {
-
-        }
-
-        public Indumentaria ExistePrenda(int codIndumentaria)
-        {
-            Indumentaria ind;
+            IndumentariaEnt ind;
             if (inventario is null)
             {
                 throw new NoHayPrendasCargadasException();
@@ -68,24 +78,32 @@ namespace ModeloIndumentaria.Entidades
             else
                 return ind;
         }
-        public bool HayStockSuficienteDe (Indumentaria indumentaria, int cantidad)
+        public bool HayStockSuficienteDe (IndumentariaEnt indumentaria, int cantidad)
         {
             return indumentaria.Stock >= cantidad;
-
         }
-        public void IngresarOrden (int codIndumentaria,  int cantidad, int codCliente)
+        public void IngresarOrden (List <VentaItem> ventaItems, int codCliente)
         {
-            Indumentaria ind = ExistePrenda(codIndumentaria);
-            if (HayStockSuficienteDe (ind, cantidad))
+            Cliente cliente = ClientesFactory.GetCliente(codCliente);
+            foreach (VentaItem vt in ventaItems)
             {
-
+                //esto habria que hacerlo en quitarstock?
+                if (!HayStockSuficienteDe(vt.Prenda, vt.Cantidad))
+                {
+                    throw new NoHayStockSuficienteException();
+                }
             }
+            if (cliente != null)
+            { 
+                Venta venta = new Venta(ventaItems, cliente, (int)EstadoVenta.Iniciada, GetProximoCodigo());
+                
+         }
             else
             {
                 throw new NoHayStockSuficienteException();
             }
         }
-        public List <Indumentaria> Listar()
+        public List <IndumentariaEnt> Listar()
         {
             if (inventario is null)
             {

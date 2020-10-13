@@ -51,5 +51,9 @@ namespace ModeloIndumentaria.Entidades
                 this.codigo = value;
             }
         }
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Cliente && this.Codigo == ((Cliente)obj).Codigo;
+        }
     }
 }

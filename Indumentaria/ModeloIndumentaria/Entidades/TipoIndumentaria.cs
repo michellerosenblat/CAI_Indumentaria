@@ -56,7 +56,7 @@ namespace ModeloIndumentaria.Entidades
         }
         public override string ToString()
         {
-            return "Codigo: " + codigo + " Origen: " + origen + ", porcentaje de algodon: " + porcentajeAlgodon;
+            return "Codigo: " + codigoTipoIndumentaria + " Origen: " + origen + ", porcentaje de algodon: " + porcentajeAlgodon;
 
         }
     }

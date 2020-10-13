@@ -45,7 +45,7 @@
     <Compile Include="Entidades\Camisa.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\EstadoVenta.cs" />
-    <Compile Include="Entidades\Indumentaria.cs" />
+    <Compile Include="Entidades\IndumentariaEnt.cs" />
     <Compile Include="Entidades\IndumentariaCasual.cs" />
     <Compile Include="Entidades\IndumentariaDeportiva.cs" />
     <Compile Include="Entidades\IndumentariaFormal.cs" />
@@ -54,8 +54,11 @@
     <Compile Include="Entidades\TipoIndumentaria.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entidades\VentaItem.cs" />
+    <Compile Include="Excepciones\NoExisteClienteException.cs" />
     <Compile Include="Excepciones\NoExisteTipoCategoriaException.cs" />
     <Compile Include="Excepciones\NoHayPrendasCargadasException.cs" />
+    <Compile Include="Excepciones\NoHayStockSuficienteException.cs" />
+    <Compile Include="Factories\ClientesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

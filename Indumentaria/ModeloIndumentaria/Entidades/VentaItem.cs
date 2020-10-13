@@ -8,10 +8,10 @@ namespace ModeloIndumentaria.Entidades
 {
     public class VentaItem
     {
-        private Indumentaria prenda;
+        private IndumentariaEnt prenda;
         private int cantidad;
 
-        public VentaItem (Indumentaria prenda, int cantidad)
+        public VentaItem (IndumentariaEnt prenda, int cantidad)
         {
             this.prenda = prenda;
             this.cantidad = cantidad;
@@ -19,6 +19,28 @@ namespace ModeloIndumentaria.Entidades
         public double GetTotal()
         {
             return prenda.Precio * cantidad;
+        }
+        public IndumentariaEnt Prenda
+        {
+            get
+            {
+                return this.prenda;
+            }
+            set
+            {
+                this.prenda = value;
+            }
+        }
+        public int Cantidad
+        {
+            get
+            {
+                return this.cantidad;
+            }
+            set
+            {
+                this.cantidad = value;
+            }
         }
     }
 }

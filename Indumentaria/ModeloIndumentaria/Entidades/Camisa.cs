@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModeloIndumentaria.Entidades
 {
-    public class Camisa : Indumentaria
+    public class Camisa : IndumentariaEnt
     {
         private bool tieneEstampado;
         private string tipoManga;

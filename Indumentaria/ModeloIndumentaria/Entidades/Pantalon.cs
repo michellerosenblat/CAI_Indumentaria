@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModeloIndumentaria.Entidades
 {
-    public class Pantalon : Indumentaria
+    public class Pantalon : IndumentariaEnt
     {
         private string material;
         private bool tieneBolsillos;

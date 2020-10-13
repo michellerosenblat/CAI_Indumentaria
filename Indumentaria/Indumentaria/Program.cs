@@ -31,6 +31,7 @@ namespace Indumentaria
             int codIndumentaria;
             int cantidad;
             int codCliente;
+            bool ingresarOtraPrenda;
         TipoIndumentaria tipoIndumentaria;
             do
             {
@@ -84,14 +85,25 @@ namespace Indumentaria
                         break;
                         case 5:
                             //Ingresar orden
-                            try { 
+                            try {
+                                List<VentaItem> ventaItems = new List<VentaItem>();
                             ListarIndumentariaDe(tienda);
-                            codIndumentaria = Validacion.PedirInt("codigo de la indumentaria a comprar");
-                            cantidad = Validacion.PedirInt("cantidad del producto");
                             codCliente = Validacion.PedirInt("codigo del cliente");
-                                tienda.IngresarOrden(codIndumentaria, cantidad, codCliente);
+                                do
+                                {
+                                    codIndumentaria = Validacion.PedirInt("codigo de la indumentaria a comprar");
+                                    IndumentariaEnt ind = tienda.ExistePrenda(codIndumentaria);
+                                    cantidad = Validacion.PedirInt("cantidad del producto");
+                                    ventaItems.Add(new VentaItem(ind, cantidad));
+                                    ingresarOtraPrenda = Validacion.PedirSON("S para agregar otra prenda a la venta, N para terminar");
+                                }
+                                while (ingresarOtraPrenda);
+                                tienda.IngresarOrden(ventaItems, codCliente);
                             }
-                            catch ()
+                            catch (NoHayPrendasCargadasException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
                             break;
                     }
                 }
@@ -112,8 +124,8 @@ namespace Indumentaria
         }
         static void ListarIndumentariaDe(TiendaRopa tienda)
         {
-            List<ModeloIndumentaria.Entidades.Indumentaria> listaIndumentaria = tienda.Listar();
-            foreach (ModeloIndumentaria.Entidades.Indumentaria ind in listaIndumentaria)
+            List<ModeloIndumentaria.Entidades.IndumentariaEnt> listaIndumentaria = tienda.Listar();
+            foreach (ModeloIndumentaria.Entidades.IndumentariaEnt ind in listaIndumentaria)
             {
                 Console.WriteLine(ind.GetDetalle());
             }
